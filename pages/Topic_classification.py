@@ -46,7 +46,7 @@ st.title('主题分类')
 content = st.text_area('请输入新闻标题：', key = 0)
 
 
-if st.button('运行', key=0):
+if st.button('运行', key = 1):
     with st.spinner('正在加载模型和推理，请稍等....'):
         model = torch.load('best_model_3.pth', map_location=torch.device('cpu'))
         embed_model = Word2Vec.load('skip_gram')
