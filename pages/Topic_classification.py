@@ -50,7 +50,6 @@ if st.button('运行', key = 1):
     with st.spinner('正在加载模型和推理，请稍等....'):
         model = torch.load('best_model_3.pth', map_location=torch.device('cpu'))
         embed_model = Word2Vec.load('skip_gram')
-    st.success('模型加载和推理成功！')
     l = jieba.lcut(content)
     vectors = []
     for i in l:
@@ -67,4 +66,5 @@ if st.button('运行', key = 1):
     pred_2 = pred.numpy().tolist()
     topic = to_topic[pred_2]
     st.write('预测的主题是：', topic)
+    st.success('模型加载和推理成功！')
 
