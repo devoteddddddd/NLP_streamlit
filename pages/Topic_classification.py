@@ -43,7 +43,7 @@ to_topic = \
 
 st.set_page_config(page_title="主题分类")
 st.title('主题分类')
-content = st.text_area('请输入新闻标题：(一次只能预测一个新闻标题)', key = 0)
+content = st.text_area('请输入一则新闻标题：(一次只能预测一个新闻标题)', key = 0)
 
 
 if st.button('运行', key = 1):

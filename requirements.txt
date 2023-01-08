@@ -1,3 +1,4 @@
 torch
 jieba
 gensim
+transformers
