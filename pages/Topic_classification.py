@@ -48,8 +48,14 @@ content = st.text_area('请输入一则新闻标题：(一次只能预测一个�
 
 if st.button('运行', key = 1):
     with st.spinner('正在加载模型和推理，请稍等....'):
-        model = torch.load('best_model_3.pth', map_location=torch.device('cpu'))
-        embed_model = Word2Vec.load('skip_gram')
+        
+        @st.cache(hash_funcs={"MyUnhashableClass": lambda _: None)
+        def load_model():
+            return torch.load("best_model_3.pth"),  Word2Vec.load('skip_gram')
+
+        model,embed_model = load_model()
+        #model = torch.load('best_model_3.pth', map_location=torch.device('cpu'))
+        #embed_model = Word2Vec.load('skip_gram')
     l = jieba.lcut(content)
     vectors = []
     for i in l:
