@@ -67,6 +67,7 @@ if st.button('运行', key = 1):
         vectors.append(vec2)
     inputs = torch.tensor(vectors).unsqueeze(0)
     outputs = model(inputs)
+    st.write('预测文本：' , content)
     st.write('Softmax层输出：', outputs)
     pred = torch.argmax(outputs)
     pred_2 = pred.numpy().tolist()

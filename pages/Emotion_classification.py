@@ -27,6 +27,7 @@ if st.button('运行', key = 3):
     
     inputs = tokenizer(content, return_tensors='pt', padding=True, truncation=True, max_length=512)
     outputs = model(**inputs).logits
+    st.write('预测文本：', content)
     st.write('Softmax层输出：', outputs)
     pred = torch.argmax(outputs)
     pred_2 = pred.numpy().tolist()
