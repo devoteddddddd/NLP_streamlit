@@ -15,7 +15,7 @@ content = st.text_area('请输入一则电影评论：(一次只能预测一个�
 if st.button('运行', key = 3):
     with st.spinner('正在加载模型和推理，请稍等....'):
         
-        @st.cache(hash_funcs={"MyUnhashableClass": lambda _: None}, ttl=24*3600, allow_output_mutation=True)
+        @st.cache(hash_funcs={"MyUnhashableClass": lambda _: None}, allow_output_mutation=True)
         def load_modell():
             return BertForSequenceClassification.from_pretrained('bert-base-chinese', num_labels=2), torch.load('bert_cla3.ckpt', map_location=torch.device('cpu')), BertTokenizer.from_pretrained('bert-base-chinese')
         
